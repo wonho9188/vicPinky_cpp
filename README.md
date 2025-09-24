@@ -1,5 +1,13 @@
 ### VicPinky의 ROS 프로젝트를 CPP로 변환한 레포지토리입니다.
 
+```
+source /opt/ros/jazzy/setup.bash
+colcon build
+source install/setup.bash
+// domain id 설정 (상황에 따라 설정할 것)
+// venv 설정 (상황에 따라 설정할 것)
+```
+
 실행
 
 [robot]
