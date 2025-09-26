@@ -157,6 +157,12 @@
         </xacro:inertial_cylinder>
     </link>
 
+    <!-- <joint name="${prefix}left_caster_joint" type="fixed">
+        <parent link="${prefix}base_link"/>
+        <child link="${prefix}left_caster"/>
+        <origin xyz="${-chassis_length/2-0.1} ${chassis_width/2-0.1} ${-caster_wheel_radius}" rpy="0 0 0"/>
+    </joint> -->
+
     <joint name="${prefix}left_caster_joint" type="fixed">
         <parent link="${prefix}base_link"/>
         <child link="${prefix}left_caster"/>
@@ -181,6 +187,12 @@
             <origin xyz="0 0 0" rpy="0 0 0"/>
         </xacro:inertial_sphere>
     </link>
+
+    <!-- <joint name="${prefix}right_caster_joint" type="fixed">
+        <parent link="${prefix}base_link"/>
+        <child link="${prefix}right_caster"/>
+        <origin xyz="${-chassis_length/2-0.1} ${-chassis_width/2+0.1} ${-caster_wheel_radius}" rpy="0 0 0"/>
+    </joint> -->
 
     <joint name="${prefix}right_caster_joint" type="fixed">
         <parent link="${prefix}base_link"/>
@@ -257,7 +269,7 @@
     <joint name="${prefix}laser_link_fixed_joint" type="fixed">
         <parent link="${prefix}lidar_mount"/>
         <child link="${prefix}laser_link"/>
-        <origin xyz="0.0 0 0.03" rpy="0 0 ${pi}"/>
+        <origin xyz="0.0 0 0.03" rpy="0 0 0"/>
     </joint>
 
 </robot>

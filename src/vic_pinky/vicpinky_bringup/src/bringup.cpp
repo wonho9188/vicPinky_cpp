@@ -51,7 +51,7 @@ void VicPinky::update_and_publish() {
     if (dt <= 0.0) return;
 
     // TODO: 모터 드라이버에서 엔코더 값 읽기
-    int encoder_l = last_encoder_l_ + 10;  // 예시: 임시 증가
+    int encoder_l = last_encoder_l_ + 10;
     int encoder_r = last_encoder_r_ + 10;
 
     int delta_l_pulses = encoder_l - last_encoder_l_;
