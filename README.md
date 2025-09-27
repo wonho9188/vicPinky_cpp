@@ -1,4 +1,13 @@
-### VicPinky의 ROS 프로젝트를 CPP로 변환한 레포지토리입니다.
+# VicPinky의 ROS 프로젝트를 CPP로 변환한 레포지토리입니다.
+
+### ROS 의존성 설치
+
+```
+rosdep install --from-paths src --ignore-src -r -y
+```
+이후 빌드가 안된다면 오류메세지에 뜬 의존성을 추가적으로 설치해주세요.
+
+### 빌드
 
 ```
 source /opt/ros/jazzy/setup.bash
@@ -8,13 +17,13 @@ source install/setup.bash
 // venv 설정 (상황에 따라 설정할 것)
 ```
 
-실행
+### 실행
 
 [robot]
 - **bringup** : ros2 launch vicpinky_bringup bringup.launch.xml
 - **slam 실행** : ros2 launch vicpinky_navigation map_building.launch.xml
 - **맵 저장** : ros2 run nav2_map_server map_saver_cli -f "저장할 맵 이름"
-- **네비게이션 실행** : ros2 launch vicpinky_navigation bringup_launch.xml map:=저장한_맵.yaml
+- **네비게이션 실행** : ros2 launch vicpinky_navigation bringup_launch.xml map:=저장한_맵.yaml use-sim-time:=True
 
 [pc]
 - **gazebo** ros2 launch vicpinky_bringup gazebo_bringup.launch.xml
