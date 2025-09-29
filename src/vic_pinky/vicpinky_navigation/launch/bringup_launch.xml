@@ -52,5 +52,22 @@
             <arg name='lifecycle_nodes' value="$(var lifecycle_nodes_nav)"/>
         </include>
     </group>
+    
+    <!-- Map Server -->
+    <node pkg="nav2_map_server" exec="map_server" name="map_server" output="screen">
+        <param name="use_sim_time" value="$(var use_sim_time)"/>
+        <param name="yaml_filename" value="$(var map)"/>
+    </node>
 
+    <!-- AMCL (Localization) -->
+    <node pkg="nav2_amcl" exec="amcl" name="amcl" output="screen">
+        <param from="$(var params_file)"/>
+    </node>
+
+    <!-- Lifecycle Manager to start the nodes -->
+    <node pkg="nav2_lifecycle_manager" exec="lifecycle_manager" name="lifecycle_manager_localization" output="screen">
+        <param name="use_sim_time" value="$(var use_sim_time)"/>
+        <param name="autostart" value="true"/>
+        <param name="node_names" value="['map_server', 'amcl']"/>
+    </node>
 </launch>

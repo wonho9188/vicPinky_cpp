@@ -17,6 +17,28 @@ source install/setup.bash
 // venv 설정 (상황에 따라 설정할 것)
 ```
 
+### vicpinky 연결
+와이파이 연결 : vicpinky_ee94 / pw : vicpinky
+
+도메인 아이디 알아보기
+echo $ROS_DOMAIN_ID
+export ROS_DOMAIN_ID=31 (예시입니다.)
+
+* ssh [robot] 연결
+ssh vic@192.168.5.1 / pw : 1
+
+* robot 와이파이 연결
+./wifi_setup.sh
+SSID : addinedu_201class_2-5G
+PW :201class2!
+
+* 와이파이 연결 확인
+ping 8.8.8.8
+
+* 현재 와이파이 id 확인
+iwgetid -r
+
+
 ### 실행
 
 [robot]
@@ -24,6 +46,7 @@ source install/setup.bash
 - **slam 실행** : ros2 launch vicpinky_navigation map_building.launch.xml
 - **맵 저장** : ros2 run nav2_map_server map_saver_cli -f "저장할 맵 이름"
 - **네비게이션 실행** : ros2 launch vicpinky_navigation bringup_launch.xml map:=저장한_맵.yaml use-sim-time:=True
+(use_sim_time:=True 는 gazebo일 때만)
 
 [pc]
 - **gazebo** ros2 launch vicpinky_bringup gazebo_bringup.launch.xml
